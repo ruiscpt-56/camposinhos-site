@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rui Camposinhos | Consultoria de Engenharia Civil</title>
+<meta name="description" content="Consultoria de engenharia civil com mais de quatro décadas de experiência em estruturas, fachadas e avaliações de engenharia. Perícias judiciais e pareceres técnicos.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root{
+    --bg:#f4f5f7; --card:#ffffff; --ink:#1f2933; --muted:#5b6772;
+    --line:#e2e6ea; --accent:#1f4e6b; --accent-soft:#e8eff4;
+  }
+  html{ scroll-behavior:smooth; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.65; }
+  a{ color:var(--accent); text-decoration:none; }
+  a:hover{ text-decoration:underline; }
+
+  /* NAV */
+  nav{ position:fixed; top:0; left:0; width:100%; background:#fff; border-bottom:1px solid var(--line);
+    z-index:100; padding:14px 24px; display:flex; justify-content:space-between; align-items:center;
+    box-shadow:0 1px 4px rgba(0,0,0,.06); }
+  .brand{ font-weight:700; font-size:1.05rem; color:var(--ink); }
+  .nav-links{ display:flex; gap:22px; }
+  .nav-links a{ color:var(--muted); font-size:.93rem; font-weight:500; }
+  .nav-links a:hover{ color:var(--accent); text-decoration:none; }
+  .menu-btn{ display:none; background:none; border:0; font-size:1.5rem; cursor:pointer; color:var(--ink); }
+
+  /* HERO */
+  header.hero{ margin-top:60px; background:linear-gradient(180deg,#fff 0%,var(--accent-soft) 100%);
+    padding:70px 24px 60px; text-align:center; border-bottom:1px solid var(--line); }
+  header.hero h1{ font-size:2.4rem; letter-spacing:-.5px; margin-bottom:14px; }
+  .credentials{ max-width:820px; margin:0 auto 22px; color:var(--accent); font-weight:600; font-size:1rem; }
+  header.hero p.lead{ max-width:760px; margin:0 auto 28px; color:var(--muted); font-size:1.08rem; }
+  .btn{ display:inline-block; background:var(--accent); color:#fff; padding:12px 26px; border-radius:6px;
+    font-weight:600; font-size:.98rem; }
+  .btn:hover{ background:#163a50; text-decoration:none; }
+
+  /* SECTIONS */
+  section{ max-width:1080px; margin:0 auto; padding:64px 24px; }
+  section h2{ font-size:1.7rem; margin-bottom:6px; }
+  .section-rule{ width:56px; height:3px; background:var(--accent); border-radius:2px; margin-bottom:32px; }
+  .grid{ display:grid; gap:18px; }
+  .cols-3{ grid-template-columns:repeat(3,1fr); }
+  .cols-2{ grid-template-columns:repeat(2,1fr); }
+  .card{ background:var(--card); border:1px solid var(--line); border-radius:10px; padding:22px;
+    box-shadow:0 1px 3px rgba(0,0,0,.04); }
+  .card h3{ font-size:1.12rem; margin-bottom:6px; color:var(--accent); }
+  .card .sub{ color:var(--muted); font-size:.95rem; }
+  .card ul{ list-style:none; margin-top:10px; }
+  .card ul li{ position:relative; padding-left:18px; margin-bottom:7px; color:var(--ink); font-size:.96rem; }
+  .card ul li::before{ content:'—'; position:absolute; left:0; color:var(--accent); }
+
+  .alt{ background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    max-width:none; }
+  .alt .inner{ max-width:1080px; margin:0 auto; padding:0; }
+
+  /* PUBLICATIONS */
+  .pub-group{ margin-bottom:38px; }
+  .pub-group h3{ font-size:1.2rem; margin-bottom:16px; padding-bottom:8px; border-bottom:1px solid var(--line); }
+  .pub{ margin-bottom:14px; }
+  .pub .t{ font-weight:600; }
+  .pub .m{ color:var(--muted); font-size:.93rem; }
+  .articles li{ margin-bottom:12px; list-style:none; }
+  .articles .t{ font-weight:600; }
+  .articles .m{ color:var(--muted); font-size:.9rem; }
+
+  /* CONTACT */
+  form{ max-width:620px; margin:0 auto; display:grid; gap:14px; }
+  label{ font-weight:600; font-size:.9rem; }
+  input,textarea{ width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:6px;
+    font-family:inherit; font-size:.97rem; background:#fff; }
+  textarea{ min-height:130px; resize:vertical; }
+  .contact-alt{ text-align:center; margin-top:26px; color:var(--muted); }
+
+  footer{ text-align:center; padding:34px 24px; color:var(--muted); font-size:.88rem;
+    border-top:1px solid var(--line); background:#fff; }
+
+  @media(max-width:820px){
+    .cols-3{ grid-template-columns:1fr; } .cols-2{ grid-template-columns:1fr; }
+    .nav-links{ display:none; } .menu-btn{ display:block; }
+    .nav-links.open{ display:flex; flex-direction:column; position:absolute; top:56px; right:0;
+      background:#fff; border:1px solid var(--line); padding:14px 20px; gap:14px; box-shadow:0 6px 18px rgba(0,0,0,.1); }
+    header.hero h1{ font-size:1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="brand">Rui Camposinhos</span>
+  <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('nav-links').classList.toggle('open')">&#9776;</button>
+  <div class="nav-links" id="nav-links">
+    <a href="#clientes">Clientes</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#publicacoes">Publicações</a>
+    <a href="#afiliacoes">Afiliações</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <h1>Rui Camposinhos</h1>
+  <p class="credentials">PhD com Agregação · EUR-ING · Membro Conselheiro da Ordem dos Engenheiros · Especialista em Estruturas · Especialista em Avaliações de Engenharia · Especialista em Engenharia de Fachadas</p>
+  <p class="lead">Consultoria de engenharia com mais de quatro décadas de experiência em estruturas e fachadas. Verificação de segurança, perícias judiciais e pareceres técnicos fundamentados em rigor académico e prática profissional.</p>
+  <a class="btn" href="#contacto">Solicitar Consulta</a>
+</header>
+
+<!-- CLIENTES -->
+<section id="clientes">
+  <h2>Clientes</h2><div class="section-rule"></div>
+  <div class="grid cols-3">
+    <div class="card"><h3>Iberdrola</h3><p class="sub">Avaliações de engenharia</p></div>
+    <div class="card"><h3>BySteel</h3><p class="sub">Sistemas modulares de construção</p></div>
+    <div class="card"><h3>Augwind</h3><p class="sub">Israel — armazenamento de energia</p></div>
+    <div class="card"><h3>CCAD</h3><p class="sub">Serviços de engenharia</p></div>
+    <div class="card"><h3>ISEP</h3><p class="sub">Instituto Superior de Engenharia do Porto</p></div>
+    <div class="card"><h3>Telhabel</h3><p class="sub">Pré-fabricação em betão pré-esforçado</p></div>
+    <div class="card"><h3>Conduril</h3><p class="sub">Projecto edifício E da ONU</p></div>
+    <div class="card"><h3>MSF Empreiteiros</h3><p class="sub">Fachadas — Natura Towers e outros</p></div>
+    <div class="card"><h3>Banco Mundial</h3><p class="sub">Assistência técnica — Cabo Verde</p></div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<div class="alt"><div class="inner">
+<section id="servicos">
+  <h2>Serviços</h2><div class="section-rule"></div>
+  <div class="grid cols-2">
+    <div class="card">
+      <h3>Fachadas</h3>
+      <ul>
+        <li>Estudos de pressurização em fachadas dinâmicas</li>
+        <li>Projecto de fachadas ventiladas</li>
+        <li>Dimensionamento de vidro estrutural</li>
+        <li>Revestimentos em pedra natural com fixação mecânica</li>
+        <li>Comportamento estrutural de alvenarias</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Pareceres e Perícias</h3>
+      <ul>
+        <li>Estudo de patologias em edifícios antigos e com valor histórico</li>
+        <li>Consultoria sobre metodologias de reabilitação estrutural e não estrutural</li>
+        <li>Perícias judiciais e pareceres técnicos para tribunais</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Avaliações de Engenharia</h3>
+      <ul>
+        <li>Análise de Investimentos Imobiliários e Obras Públicas</li>
+        <li>Avaliações Imobiliárias</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Pontes Pedonais</h3>
+      <ul>
+        <li>Projecto e dimensionamento de pontes pedonais atirantadas</li>
+        <li>Estudo do comportamento dinâmico e controlo de vibrações</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Reservatórios Hiperbáricos em Betão</h3>
+      <ul>
+        <li>Dimensionamento e projecto de reservatórios de elevada e muito elevada pressão para armazenamento de energia</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</div></div>
+
+<!-- PUBLICAÇÕES -->
+<section id="publicacoes">
+  <h2>Publicações</h2><div class="section-rule"></div>
+
+  <div class="pub-group">
+    <h3>Livros</h3>
+    <div class="pub"><div class="t">Engenharia de Investimentos Imobiliários</div><div class="m">Edição dos Autores · Porto · 2025 · ISBN 978-989-33-6908-1</div></div>
+    <div class="pub"><div class="t">Avaliação Imobiliária</div><div class="m">Livraria de José Alves © · Porto · 2021 · ISBN 978-989-33-149-4</div></div>
+    <div class="pub"><div class="t">Manual de Dimensionamento de Fachadas Envidraçadas: Comportamento Estrutural</div><div class="m">CMM © · Coimbra · 2017 · ISBN 978-989-99226-7-9</div></div>
+    <div class="pub"><div class="t">Stone Cladding Engineering</div><div class="m">Springer © · International Edition · 2014 · ISBN 978-94-007-6847-5</div></div>
+    <div class="pub"><div class="t">Revestimentos em Pedra Natural com Fixação Mecânica</div><div class="m">Edições Sílabo © · Lisboa · 2009 · ISBN 978-972-618-561-1</div></div>
+    <div class="pub"><div class="t">Lajes Aligeiradas com Vigotas Pré-tensionadas</div><div class="m">FEUPedições © · Porto · 2005 (2.ª ed. 2010) · ISBN 972-752-081-2</div></div>
+    <div class="pub"><div class="t">Technical Manual on the Application, Use and Maintenance of Ornamental Stones</div><div class="m">Assimagra © · Edição bilingue · Portugal · 2007</div></div>
+  </div>
+
+  <div class="pub-group">
+    <h3>Capítulos de Livro</h3>
+    <div class="pub"><div class="t">Structural Engineering Handbook, 5.ª ed.</div><div class="m">McGraw-Hill © · 2020 — Cap. 30 (Structural Glass) e Cap. 33 (Stone Cladding) · ISBN 9781260115987</div></div>
+  </div>
+
+  <div class="pub-group">
+    <h3>Artigos em Revistas Internacionais</h3>
+    <ul class="articles">
+      <li><div class="t">Functional Obsolescence in Real Estate Appraisal</div><div class="m">Journal of European Real Estate Research · 2025</div></li>
+      <li><div class="t">Relative Leasing Advantage: A Blended Method Approach</div><div class="m">Zeitschrift für Immobilienökonomie · 2025</div></li>
+      <li><div class="t">A Dynamic Approach to the Cost Method in Real Estate Appraisal</div><div class="m">Journal of Finance and Investment Analysis · 2019</div></li>
+      <li><div class="t">Structural Performance of Prestressed Façade Limestone Panels</div><div class="m">International Journal of Sustainable Materials and Structural Systems · 2013</div></li>
+      <li><div class="t">Undercut Anchorage in Dimension Stone Cladding</div><div class="m">ICE Construction Materials · 2012</div></li>
+      <li><div class="t">Headed Wires in Concrete Connections</div><div class="m">ICE Structures &amp; Buildings · 2012</div></li>
+      <li><div class="t">Limit States of Cracking in Beam-and-Block Floor Systems using Pre-tensioned Ribs</div><div class="m">Structural Concrete Journal, FIB · 2006</div></li>
+    </ul>
+  </div>
+
+  <div class="pub-group">
+    <h3>Patentes Nacionais</h3>
+    <div class="pub"><div class="t">Sistema Autónomo de Auto-Pressurização Reactivo à Chuva e de Controlo de Temperatura em Fachadas</div><div class="m">Patente Nacional 104800 · 2010</div></div>
+    <div class="pub"><div class="t">Painéis Pré-esforçados realizados a partir de placas de pedra natural e tirantes em aço</div><div class="m">Patente Nacional 104770 · 2010</div></div>
+  </div>
+</section>
+
+<!-- AFILIAÇÕES -->
+<div class="alt"><div class="inner">
+<section id="afiliacoes">
+  <h2>Afiliações Profissionais</h2><div class="section-rule"></div>
+  <div class="grid cols-3">
+    <div class="card"><h3>Membro Conselheiro</h3><p class="sub">Ordem dos Engenheiros (n.º 20900 O.E.)</p></div>
+    <div class="card"><h3>EUR-ING</h3><p class="sub">European Engineer pela FEANI (n.º 34842)</p></div>
+    <div class="card"><h3>Especialista em Estruturas</h3><p class="sub">Título de Especialista em Engenharia de Estruturas pela Ordem dos Engenheiros</p></div>
+    <div class="card"><h3>Especialista em Avaliações de Engenharia</h3><p class="sub">Título de Especialista em Avaliações pela Ordem dos Engenheiros</p></div>
+    <div class="card"><h3>Especialista em Engenharia de Fachadas</h3><p class="sub">Experiência comprovada em fachadas ventiladas, revestimentos em pedra natural e soluções inovadoras</p></div>
+    <div class="card"><h3>SPEF</h3><p class="sub">Membro da Sociedade Portuguesa de Engenharia de Fachadas</p></div>
+  </div>
+</section>
+</div></div>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <h2>Contacte-me</h2><div class="section-rule"></div>
+  <form onsubmit="return enviarMensagem(event)">
+    <div><label for="nome">Nome *</label><input id="nome" name="nome" required></div>
+    <div><label for="email">Email *</label><input id="email" name="email" type="email" required></div>
+    <div><label for="assunto">Assunto *</label><input id="assunto" name="assunto" required></div>
+    <div><label for="mensagem">Mensagem *</label><textarea id="mensagem" name="mensagem" required></textarea></div>
+    <button class="btn" type="submit">Enviar Mensagem</button>
+  </form>
+  <p class="contact-alt">Ou por email directo: <a href="mailto:rui@camposinhos.com">rui@camposinhos.com</a><br>
+  Perfil académico: <a href="https://ipp.academia.edu/RuideSousaCamposinhosPhDEURING" target="_blank" rel="noopener">Academia.edu</a></p>
+</section>
+
+<footer>
+  &copy; <span id="ano"></span> Rui Camposinhos · Consultoria de Engenharia Civil<br>
+  Vila do Conde, Portugal
+</footer>
+
+<script>
+  document.getElementById('ano').textContent = new Date().getFullYear();
+  function enviarMensagem(e){
+    e.preventDefault();
+    var assunto = encodeURIComponent(document.getElementById('assunto').value);
+    var corpo = encodeURIComponent(
+      document.getElementById('mensagem').value + '\n\n' +
+      document.getElementById('nome').value + ' (' + document.getElementById('email').value + ')'
+    );
+    window.location.href = 'mailto:rui@camposinhos.com?subject=' + assunto + '&body=' + corpo;
+    return false;
+  }
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    a.addEventListener('click', function(){ document.getElementById('nav-links').classList.remove('open'); });
+  });
+</script>
+
+</body>
+</html>
