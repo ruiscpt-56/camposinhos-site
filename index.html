@@ -23,8 +23,9 @@
   nav{ position:fixed; top:0; left:0; width:100%; background:#fff; border-bottom:1px solid var(--line);
     z-index:100; padding:14px 24px; display:flex; justify-content:space-between; align-items:center;
     box-shadow:0 1px 4px rgba(0,0,0,.06); }
-  .brand{ font-weight:700; font-size:.95rem; color:var(--ink); text-transform:uppercase; letter-spacing:1.5px; }
-  .brand::before{ content:'▚ '; color:var(--accent); }
+  .brand{ font-weight:700; font-size:.95rem; color:var(--ink); text-transform:uppercase; letter-spacing:1.5px;
+    display:inline-flex; align-items:center; gap:10px; }
+  .brand .logo{ height:32px; width:auto; display:block; }
   .nav-links{ display:flex; gap:22px; }
   .nav-links a{ color:var(--muted); font-size:.82rem; font-weight:600; font-family:var(--mono); text-transform:uppercase; letter-spacing:.5px; }
   .nav-links a:hover{ color:var(--accent); text-decoration:none; }
@@ -35,9 +36,10 @@
       linear-gradient(180deg,#fffdf9 0%,var(--accent-soft) 100%),
       repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(168,110,28,.05) 39px,rgba(168,110,28,.05) 40px);
     padding:74px 24px 62px; text-align:center; border-bottom:2px solid var(--accent); }
-  header.hero h1{ font-size:2.5rem; letter-spacing:-.5px; margin-bottom:16px; color:var(--slate); }
+  header.hero h1{ font-size:2.5rem; letter-spacing:-.5px; margin-bottom:6px; color:var(--slate); }
+  .subtitle{ margin:0 auto 18px; color:var(--accent-2); font-weight:600; font-size:1.15rem; letter-spacing:.3px; }
   .credentials{ max-width:840px; margin:0 auto 22px; color:var(--accent-2); font-weight:600;
-    font-size:.82rem; font-family:var(--mono); text-transform:uppercase; letter-spacing:.6px; line-height:1.9; }
+    font-size:.82rem; font-family:var(--mono); letter-spacing:.4px; line-height:1.9; }
   header.hero p.lead{ max-width:760px; margin:0 auto 28px; color:var(--muted); font-size:1.08rem; }
   .btn{ display:inline-block; background:var(--accent); color:#fff; padding:12px 26px; border-radius:4px;
     font-weight:600; font-size:.85rem; font-family:var(--mono); text-transform:uppercase; letter-spacing:1px; }
@@ -57,6 +59,7 @@
   .card ul{ list-style:none; margin-top:10px; }
   .card ul li{ position:relative; padding-left:20px; margin-bottom:7px; color:var(--ink); font-size:.96rem; }
   .card ul li::before{ content:'▸'; position:absolute; left:0; color:var(--accent); }
+  #servicos .card{ background:#f1e5cd; }
 
   .alt{ background:#fbf7ee; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
     max-width:none; }
@@ -97,7 +100,7 @@
 <body>
 
 <nav>
-  <span class="brand">Rui Camposinhos</span>
+  <span class="brand"><img class="logo" src="logo-rc.png" alt="RC — Rui Camposinhos">Rui Camposinhos</span>
   <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('nav-links').classList.toggle('open')">&#9776;</button>
   <div class="nav-links" id="nav-links">
     <a href="#clientes">Clientes</a>
@@ -110,6 +113,7 @@
 
 <header class="hero">
   <h1>Rui Camposinhos</h1>
+  <p class="subtitle">(Engenheiro Civil — FEUP)</p>
   <p class="credentials">PhD com Agregação · EUR-ING · Membro Conselheiro da Ordem dos Engenheiros · Especialista em Estruturas · Especialista em Avaliações de Engenharia · Especialista em Engenharia de Fachadas</p>
   <p class="lead">Consultoria de engenharia com mais de quatro décadas de experiência em estruturas e fachadas. Verificação de segurança, perícias judiciais e pareceres técnicos fundamentados em rigor académico e prática profissional.</p>
   <a class="btn" href="#contacto">Solicitar Consulta</a>
@@ -223,7 +227,7 @@
 <section id="afiliacoes">
   <h2>Afiliações Profissionais</h2><div class="section-rule"></div>
   <div class="grid cols-3">
-    <div class="card"><h3>Membro Conselheiro</h3><p class="sub">Ordem dos Engenheiros (n.º 20900 O.E.)</p></div>
+    <div class="card"><h3>Membro Conselheiro</h3><p class="sub">Ordem dos Engenheiros<br>(n.º 20900 O.E.)</p></div>
     <div class="card"><h3>EUR-ING</h3><p class="sub">European Engineer pela FEANI (n.º 34842)</p></div>
     <div class="card"><h3>Especialista em Estruturas</h3><p class="sub">Título de Especialista em Engenharia de Estruturas pela Ordem dos Engenheiros</p></div>
     <div class="card"><h3>Especialista em Avaliações de Engenharia</h3><p class="sub">Título de Especialista em Avaliações pela Ordem dos Engenheiros</p></div>
@@ -235,7 +239,7 @@
 
 <!-- CONTACTO -->
 <section id="contacto">
-  <h2>Contacte-me</h2><div class="section-rule"></div>
+  <h2>Contacto:</h2><div class="section-rule"></div>
   <form onsubmit="return enviarMensagem(event)">
     <div><label for="nome">Nome *</label><input id="nome" name="nome" required></div>
     <div><label for="email">Email *</label><input id="email" name="email" type="email" required></div>
