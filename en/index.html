@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rui Camposinhos | Civil Engineering Consultancy</title>
+<meta name="description" content="Civil engineering consultancy with more than four decades of experience in structures, façades and engineering appraisals. Forensic engineering and technical opinions.">
+<link rel="canonical" href="https://www.camposinhos.com/en/">
+<link rel="alternate" hreflang="pt-PT" href="https://www.camposinhos.com/">
+<link rel="alternate" hreflang="en" href="https://www.camposinhos.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://www.camposinhos.com/">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root{
+    --bg:#f5f1e8; --card:#fffdf9; --ink:#2a2620; --muted:#6f6558;
+    --line:#e4dccd; --accent:#a86e1c; --accent-2:#7d5417; --accent-soft:#efe4cf;
+    --slate:#3d4550;
+    --mono:'SFMono-Regular',ui-monospace,'Cascadia Mono','Consolas','Roboto Mono',monospace;
+  }
+  html{ scroll-behavior:smooth; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.65; }
+  a{ color:var(--accent); text-decoration:none; }
+  a:hover{ text-decoration:underline; }
+
+  /* NAV */
+  nav{ position:fixed; top:0; left:0; width:100%; background:#fff; border-bottom:1px solid var(--line);
+    z-index:100; padding:14px 24px; display:flex; justify-content:space-between; align-items:center;
+    box-shadow:0 1px 4px rgba(0,0,0,.06); }
+  .brand{ font-weight:700; font-size:.95rem; color:var(--ink); text-transform:uppercase; letter-spacing:1.5px;
+    display:inline-flex; align-items:center; gap:10px; }
+  .brand .logo{ height:32px; width:auto; display:block; }
+  .nav-links{ display:flex; gap:22px; }
+  .nav-links a{ color:var(--muted); font-size:.82rem; font-weight:600; font-family:var(--mono); text-transform:uppercase; letter-spacing:.5px; }
+  .nav-links a:hover{ color:var(--accent); text-decoration:none; }
+  .nav-links a.lang{ color:var(--accent-2); border:1px solid var(--accent); border-radius:3px; padding:2px 8px; }
+  .nav-links a.lang:hover{ background:var(--accent); color:#fff; }
+  .menu-btn{ display:none; background:none; border:0; font-size:1.5rem; cursor:pointer; color:var(--ink); }
+
+  /* HERO */
+  header.hero{ margin-top:60px; background:
+      linear-gradient(180deg,#fffdf9 0%,var(--accent-soft) 100%),
+      repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(168,110,28,.05) 39px,rgba(168,110,28,.05) 40px);
+    padding:74px 24px 62px; text-align:center; border-bottom:2px solid var(--accent); }
+  header.hero h1{ font-size:2.5rem; letter-spacing:-.5px; margin-bottom:6px; color:var(--slate); }
+  .subtitle{ margin:0 auto 18px; color:var(--accent-2); font-weight:600; font-size:1.15rem; letter-spacing:.3px; }
+  .credentials{ max-width:840px; margin:0 auto 22px; color:var(--accent-2); font-weight:600;
+    font-size:.82rem; font-family:var(--mono); letter-spacing:.4px; line-height:1.9; }
+  header.hero p.lead{ max-width:760px; margin:0 auto 28px; color:var(--muted); font-size:1.08rem; }
+  .btn{ display:inline-block; background:var(--accent); color:#fff; padding:12px 26px; border-radius:4px;
+    font-weight:600; font-size:.85rem; font-family:var(--mono); text-transform:uppercase; letter-spacing:1px; }
+  .btn:hover{ background:var(--accent-2); text-decoration:none; }
+  .btn.ghost{ background:transparent; color:var(--accent-2); border:1px solid var(--accent); margin-left:10px; }
+  .btn.ghost:hover{ background:var(--accent-soft); }
+
+  /* PERCURSO */
+  .timeline{ list-style:none; border-left:2px solid var(--accent); margin-left:8px; }
+  .timeline li{ position:relative; padding:0 0 18px 22px; }
+  .timeline li::before{ content:''; position:absolute; left:-7px; top:8px; width:12px; height:12px; border-radius:50%;
+    background:var(--accent); border:2px solid var(--bg); }
+  .timeline .y{ font-family:var(--mono); font-size:.82rem; color:var(--accent-2); font-weight:600; letter-spacing:.4px; }
+  .timeline .d{ color:var(--ink); font-size:.97rem; }
+
+  /* SECTIONS */
+  section{ max-width:1080px; margin:0 auto; padding:64px 24px; }
+  section h2{ font-size:1.5rem; margin-bottom:6px; color:var(--slate); text-transform:uppercase; letter-spacing:1px; }
+  .section-rule{ width:64px; height:3px; background:var(--accent); border-radius:0; margin-bottom:32px; }
+  .grid{ display:grid; gap:16px; }
+  .cols-3{ grid-template-columns:repeat(3,1fr); }
+  .cols-2{ grid-template-columns:repeat(2,1fr); }
+  .card{ background:var(--card); border:1px solid var(--line); border-radius:4px; padding:22px;
+    border-left:3px solid var(--accent); box-shadow:0 1px 2px rgba(80,60,20,.05); }
+  .card h3{ font-size:1.08rem; margin-bottom:6px; color:var(--accent-2); }
+  .card .sub{ color:var(--muted); font-size:.9rem; font-family:var(--mono); }
+  .card ul{ list-style:none; margin-top:10px; }
+  .card ul li{ position:relative; padding-left:20px; margin-bottom:7px; color:var(--ink); font-size:.96rem; }
+  .card ul li::before{ content:'▸'; position:absolute; left:0; color:var(--accent); }
+  #servicos .card{ background:#f1e5cd; }
+
+  .alt{ background:#fbf7ee; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    max-width:none; }
+  .alt .inner{ max-width:1080px; margin:0 auto; padding:0; }
+
+  /* PUBLICATIONS */
+  .pub-group{ margin-bottom:38px; }
+  .pub-group h3{ font-size:.9rem; margin-bottom:16px; padding-bottom:8px; border-bottom:1px solid var(--accent);
+    color:var(--accent-2); font-family:var(--mono); text-transform:uppercase; letter-spacing:1px; }
+  .pub{ margin-bottom:14px; padding-left:14px; border-left:2px solid var(--line); }
+  .pub .t{ font-weight:600; }
+  .pub .m{ color:var(--muted); font-size:.86rem; font-family:var(--mono); }
+  .articles li{ margin-bottom:12px; list-style:none; padding-left:14px; border-left:2px solid var(--line); }
+  .articles .t{ font-weight:600; }
+  .articles .m{ color:var(--muted); font-size:.84rem; font-family:var(--mono); }
+
+  /* CONTACT */
+  form{ max-width:620px; margin:0 auto; display:grid; gap:14px; }
+  label{ font-weight:600; font-size:.9rem; }
+  input,textarea{ width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:4px;
+    font-family:inherit; font-size:.97rem; background:#fffdf9; }
+  input:focus,textarea:focus{ outline:none; border-color:var(--accent); box-shadow:0 0 0 2px var(--accent-soft); }
+  textarea{ min-height:130px; resize:vertical; }
+  .contact-alt{ text-align:center; margin-top:26px; color:var(--muted); font-family:var(--mono); font-size:.9rem; }
+
+  footer{ text-align:center; padding:34px 24px; color:var(--muted); font-size:.82rem; font-family:var(--mono);
+    border-top:2px solid var(--accent); background:#fbf7ee; }
+
+  @media(max-width:820px){
+    .cols-3{ grid-template-columns:1fr; } .cols-2{ grid-template-columns:1fr; }
+    .nav-links{ display:none; } .menu-btn{ display:block; }
+    .nav-links.open{ display:flex; flex-direction:column; position:absolute; top:56px; right:0;
+      background:#fff; border:1px solid var(--line); padding:14px 20px; gap:14px; box-shadow:0 6px 18px rgba(0,0,0,.1); }
+    header.hero h1{ font-size:1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="brand"><img class="logo" src="../logo-rc.png" alt="RC — Rui Camposinhos">Rui Camposinhos</span>
+  <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('nav-links').classList.toggle('open')">&#9776;</button>
+  <div class="nav-links" id="nav-links">
+    <a href="#career">Career</a>
+    <a href="#clients">Clients</a>
+    <a href="#services">Services</a>
+    <a href="#publications">Publications</a>
+    <a href="#affiliations">Affiliations</a>
+    <a href="#contact">Contact</a>
+    <a class="lang" href="../" hreflang="pt-PT" lang="pt-PT" title="Versão portuguesa">PT</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <h1>Rui Camposinhos</h1>
+  <p class="subtitle">(Civil Engineer — FEUP, University of Porto)</p>
+  <p class="credentials">PhD with Habilitation · EUR-ING · Chartered Counselling Engineer, Portuguese Order of Engineers · Specialist in Structural Engineering · Specialist in Engineering Appraisal · Specialist in Façade Engineering</p>
+  <p class="lead">Engineering consultancy with more than four decades of experience in structures and façades. Safety verification, forensic engineering and technical opinions grounded in academic rigour and professional practice.</p>
+  <a class="btn" href="#contact">Request a Consultation</a>
+  <a class="btn ghost" href="../cv/CV-EN.pdf" target="_blank" rel="noopener">Curriculum Vitae (PDF)</a>
+</header>
+
+<!-- CAREER -->
+<section id="career">
+  <h2>Career</h2><div class="section-rule"></div>
+  <div class="grid cols-2">
+    <div>
+      <ul class="timeline">
+        <li><div class="y">1976 — 1981 · Mozambique</div><div class="d">Career start in Lourenço Marques (Maputo); Deputy Technical Director of Banco Nacional Ultramarino / Banco de Moçambique — supervision of the bank's new head-office buildings.</div></li>
+        <li><div class="y">1982 — present</div><div class="d">Independent designer and consultant in reinforced concrete, prestressed concrete and steel structures.</div></li>
+        <li><div class="y">1983 — 2000 · Caixa Geral de Depósitos</div><div class="d">Technical consultant: real estate appraisal and risk analysis of construction and public-works investments.</div></li>
+        <li><div class="y">2000 — 2020 · ISEP, Porto</div><div class="d">Coordinating Professor with Habilitation; Director of the MSc in Civil Engineering (2010–2016); professor in charge of Façade Engineering, Technology of Structural Connections and Real Estate Appraisal. Retired in 2020.</div></li>
+      </ul>
+    </div>
+    <div>
+      <ul class="timeline">
+        <li><div class="y">2003 — 2020 · Research</div><div class="d">Founding member of LABEST and integrated member of CONSTRUCT (FEUP); coordinator of the Presstone© project — prestressed natural stone façades; two national patents (2010).</div></li>
+        <li><div class="y">2006 — 2008 · World Bank</div><div class="d">Coordinator of the scientific committee on Structural Safety and Concrete Structures for the building regulations of Cape Verde.</div></li>
+        <li><div class="y">2011 — 2019 · A3ES</div><div class="d">Chair of several assessment committees of Civil Engineering study cycles (Portuguese higher-education accreditation agency).</div></li>
+        <li><div class="y">2012 — 2014 · Visiting Professor</div><div class="d">The University of Queensland (Australia) and Warsaw University of Technology (Poland).</div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section id="clients">
+  <h2>Clients</h2><div class="section-rule"></div>
+  <div class="grid cols-3">
+    <div class="card"><h3>Iberdrola</h3><p class="sub">Engineering appraisals</p></div>
+    <div class="card"><h3>BySteel</h3><p class="sub">Modular construction systems</p></div>
+    <div class="card"><h3>Augwind</h3><p class="sub">Israel — energy storage</p></div>
+    <div class="card"><h3>CCAD</h3><p class="sub">Engineering services</p></div>
+    <div class="card"><h3>ISEP</h3><p class="sub">School of Engineering, Polytechnic of Porto</p></div>
+    <div class="card"><h3>Telhabel</h3><p class="sub">Prestressed concrete prefabrication</p></div>
+    <div class="card"><h3>Conduril</h3><p class="sub">UN Building E project, Geneva</p></div>
+    <div class="card"><h3>MSF Empreiteiros</h3><p class="sub">Façades — Natura Towers and others</p></div>
+    <div class="card"><h3>World Bank</h3><p class="sub">Technical assistance — Cape Verde</p></div>
+    <div class="card"><h3>ACA</h3><p class="sub">Mechanically fixed natural stone façade systems</p></div>
+    <div class="card"><h3>Courts of Law</h3><p class="sub">Court-appointed expert — Porto, Póvoa de Varzim, Santa Maria da Feira, Guimarães, Braga</p></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<div class="alt"><div class="inner">
+<section id="services">
+  <h2>Services</h2><div class="section-rule"></div>
+  <div class="grid cols-2">
+    <div class="card">
+      <h3>Façades</h3>
+      <ul>
+        <li>Pressurisation studies of dynamic façades</li>
+        <li>Design of ventilated façades</li>
+        <li>Structural glass design</li>
+        <li>Natural stone cladding with mechanical fixing</li>
+        <li>Structural behaviour of masonry</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Technical Opinions and Forensic Engineering</h3>
+      <ul>
+        <li>Pathology studies of old and heritage buildings</li>
+        <li>Consultancy on structural and non-structural rehabilitation methods</li>
+        <li>Court expertise and technical opinions for courts of law</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Engineering Appraisals</h3>
+      <ul>
+        <li>Real estate and public-works investment analysis</li>
+        <li>Real estate appraisal</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Pedestrian Bridges</h3>
+      <ul>
+        <li>Design of cable-stayed pedestrian bridges</li>
+        <li>Dynamic behaviour studies and vibration control</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Hyperbaric Concrete Vessels</h3>
+      <ul>
+        <li>Design of high- and very-high-pressure vessels for energy storage</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</div></div>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <h2>Publications</h2><div class="section-rule"></div>
+
+  <div class="pub-group">
+    <h3>Books</h3>
+    <div class="pub"><div class="t">Alvenarias em Fachadas — Dimensionamento Estrutural <span class="m">(Masonry in Façades — Structural Design)</span></div><div class="m">Authors' edition · October 2026 · co-authored with Mário Miranda · in print · ISBN 978-989-34-0448-5</div></div>
+    <div class="pub"><div class="t">Engenharia de Investimentos Imobiliários <span class="m">(Real Estate Investment Engineering)</span></div><div class="m">Authors' edition · Porto · 2025 · ISBN 978-989-33-6908-1</div></div>
+    <div class="pub"><div class="t">Avaliação Imobiliária <span class="m">(Real Estate Appraisal)</span></div><div class="m">Livraria de José Alves © · Porto · 2021 · editor and co-author · ISBN 978-989-33-1449-4</div></div>
+    <div class="pub"><div class="t">Manual de Dimensionamento de Fachadas Envidraçadas: Comportamento Estrutural <span class="m">(Design Manual for Glazed Façades: Structural Behaviour)</span></div><div class="m">CMM © · Coimbra · 2017 · ISBN 978-989-99226-7-9</div></div>
+    <div class="pub"><div class="t">Stone Cladding Engineering</div><div class="m">Springer © · International Edition · 2014 · ISBN 978-94-007-6847-5</div></div>
+    <div class="pub"><div class="t">Revestimentos em Pedra Natural com Fixação Mecânica <span class="m">(Natural Stone Cladding with Mechanical Fixing)</span></div><div class="m">Edições Sílabo © · Lisbon · 2009 · ISBN 978-972-618-561-1</div></div>
+    <div class="pub"><div class="t">Lajes Aligeiradas com Vigotas Pré-tensionadas <span class="m">(Beam-and-Block Floor Systems)</span></div><div class="m">FEUPedições © · Porto · 2005 (2nd ed. 2010) · ISBN 972-752-081-2</div></div>
+    <div class="pub"><div class="t">Technical Manual on the Application, Use and Maintenance of Ornamental Stones</div><div class="m">Assimagra © · Bilingual edition · Portugal · 2007</div></div>
+  </div>
+
+  <div class="pub-group">
+    <h3>Book Chapters</h3>
+    <div class="pub"><div class="t">Structural Engineering Handbook, 5th ed.</div><div class="m">McGraw-Hill © · 2020 — Chap. 30 (Structural Glass) and Chap. 33 (Stone Cladding) · ISBN 9781260115987</div></div>
+  </div>
+
+  <div class="pub-group">
+    <h3>Papers in International Journals</h3>
+    <ul class="articles">
+      <li><div class="t">Functional Obsolescence in Real Estate Appraisal</div><div class="m">The Appraisal Journal, Appraisal Institute · 2025 (forthcoming)</div></li>
+      <li><div class="t">Relative Leasing Advantage: A Blended Method Approach</div><div class="m">Zeitschrift für Immobilienökonomie — German Journal of Real Estate Research · 2025 · <a href="https://doi.org/10.3790/gjrer.2025.1465002" target="_blank" rel="noopener">DOI</a></div></li>
+      <li><div class="t">A Dynamic Approach to the Cost Method in Real Estate Appraisal</div><div class="m">Journal of Finance and Investment Analysis · 2019</div></li>
+      <li><div class="t">Real Estate and Matricial Analysis</div><div class="m">Journal of Finance and Investment Analysis · 2018</div></li>
+      <li><div class="t">Structural Performance of Prestressed Façade Limestone Panels</div><div class="m">International Journal of Sustainable Materials and Structural Systems · 2013</div></li>
+      <li><div class="t">Natural Stone Testing Specification for a New Façade System</div><div class="m">Key Engineering Materials · 2013</div></li>
+      <li><div class="t">Undercut Anchorage in Dimension Stone Cladding</div><div class="m">ICE Construction Materials · 2012</div></li>
+      <li><div class="t">Dimension Stone Design — Kerf Anchorage in Limestone and Marble</div><div class="m">ICE Construction Materials · 2012</div></li>
+      <li><div class="t">Dimension Stone Design Partial Safety Factors</div><div class="m">ICE Construction Materials · 2012</div></li>
+      <li><div class="t">Headed Wires in Concrete Connections</div><div class="m">ICE Structures &amp; Buildings · 2012</div></li>
+      <li><div class="t">Slate Flexural and Anchorage Strength Considerations in Cladding Design</div><div class="m">Construction and Building Materials, Elsevier · 2011</div></li>
+      <li><div class="t">Dimension Stone Cladding Design with Dowel Anchorage</div><div class="m">ICE Construction Materials · 2009</div></li>
+      <li><div class="t">Limit States of Cracking in Beam-and-Block Floor Systems using Pre-tensioned Ribs</div><div class="m">Structural Concrete Journal, FIB · 2006</div></li>
+    </ul>
+  </div>
+
+  <div class="pub-group">
+    <h3>National Patents</h3>
+    <div class="pub"><div class="t">Autonomous Self-Pressurising System, Reactive to Rain, with Temperature Control in Façades</div><div class="m">Portuguese Patent 104800 · 2010</div></div>
+    <div class="pub"><div class="t">Prestressed Panels made from Natural Stone Slabs and Steel Ties</div><div class="m">Portuguese Patent 104770 · 2010</div></div>
+  </div>
+</section>
+
+<!-- AFFILIATIONS -->
+<div class="alt"><div class="inner">
+<section id="affiliations">
+  <h2>Professional Affiliations</h2><div class="section-rule"></div>
+  <div class="grid cols-3">
+    <div class="card"><h3>Chartered Counselling Engineer</h3><p class="sub">Ordem dos Engenheiros — Portuguese Order of Engineers<br>(Reg. no. 20900)</p></div>
+    <div class="card"><h3>EUR-ING</h3><p class="sub">European Engineer, FEANI (no. 34842)</p></div>
+    <div class="card"><h3>Specialist in Structural Engineering</h3><p class="sub">Specialist title awarded by the Portuguese Order of Engineers</p></div>
+    <div class="card"><h3>Specialist in Engineering Appraisal</h3><p class="sub">Specialist title awarded by the Portuguese Order of Engineers</p></div>
+    <div class="card"><h3>Specialist in Façade Engineering</h3><p class="sub">Proven experience in ventilated façades, natural stone cladding and innovative solutions</p></div>
+    <div class="card"><h3>EdF</h3><p class="sub">Member of the <a href="https://engfachadas.pt/" target="_blank" rel="noopener">Portuguese Association of Façade Engineering</a></p></div>
+    <div class="card"><h3>Peer Reviewer</h3><p class="sub">Journal of Facade Design &amp; Engineering · Journal of Structural Engineering · Structural Safety · Construction and Building Materials · Journal of Construction Engineering and Management (ASCE) · Journal of Finance and Investment Analysis</p></div>
+  </div>
+</section>
+</div></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact:</h2><div class="section-rule"></div>
+  <form onsubmit="return sendMessage(event)">
+    <div><label for="nome">Name *</label><input id="nome" name="nome" required></div>
+    <div><label for="email">Email *</label><input id="email" name="email" type="email" required></div>
+    <div><label for="assunto">Subject *</label><input id="assunto" name="assunto" required></div>
+    <div><label for="mensagem">Message *</label><textarea id="mensagem" name="mensagem" required></textarea></div>
+    <button class="btn" type="submit">Send Message</button>
+  </form>
+  <p class="contact-alt">Or by direct email: <a href="mailto:rui@camposinhos.com">rui@camposinhos.com</a><br>
+  Academic profile: <a href="https://ipp.academia.edu/RuideSousaCamposinhosPhDEURING" target="_blank" rel="noopener">Academia.edu</a> · <a href="https://www.linkedin.com/in/rui-camposinhos-54353423/" target="_blank" rel="noopener">LinkedIn</a><br>
+  Curriculum Vitae: <a href="../cv/CV-EN.pdf" target="_blank" rel="noopener">English</a> · <a href="../cv/CV-PT.pdf" target="_blank" rel="noopener">Português</a></p>
+</section>
+
+<footer>
+  &copy; <span id="ano"></span> Rui Camposinhos · Civil Engineering Consultancy<br>
+  Vila do Conde, Portugal
+</footer>
+
+<script>
+  document.getElementById('ano').textContent = new Date().getFullYear();
+  function sendMessage(e){
+    e.preventDefault();
+    var assunto = encodeURIComponent(document.getElementById('assunto').value);
+    var corpo = encodeURIComponent(
+      document.getElementById('mensagem').value + '\n\n' +
+      document.getElementById('nome').value + ' (' + document.getElementById('email').value + ')'
+    );
+    window.location.href = 'mailto:rui@camposinhos.com?subject=' + assunto + '&body=' + corpo;
+    return false;
+  }
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    a.addEventListener('click', function(){ document.getElementById('nav-links').classList.remove('open'); });
+  });
+</script>
+
+</body>
+</html>
